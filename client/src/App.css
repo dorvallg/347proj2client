@@ -1,0 +1,43 @@
+#bets-root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bet {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: cornflowerblue;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: white;
+  text-shadow: 0 0 3px black;
+  position: relative;
+}
+
+.bet > .bet-name {
+  font-size: 14pt;
+}
+
+.bet > .for-bet {
+  position: absolute;
+  top: 50px;
+}
+
+.bet > .against-bet {
+  position: absolute;
+  top: 100px;
+}
+
+#adder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+#name-input {
+  margin: 10px 0;
+}
