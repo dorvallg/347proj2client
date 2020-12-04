@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Bet} from './bet.js';
-import {useSelector, useDispatch} from "react-redux";
+import {useSelector, useDispatch} from 'react-redux';
 import {BetAdder} from './betAdder.js';
 import {stopWaiting} from './actions';
 
