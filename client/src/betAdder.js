@@ -7,7 +7,7 @@ export function BetAdder(props) {
 
     return (
         <div id="adder" className="bet">
-
+            <label for="name-input">Add new event:</label>
             <input 
             id="name-input" 
             type="text"
