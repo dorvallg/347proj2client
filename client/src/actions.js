@@ -29,7 +29,7 @@ function checkForErrors(response){
 
 const host = 'https://project2.cjwalton.me/:8443';
 
-export function loaBet(bet) {
+export function loadBet(bet) {
     return dispatch => {
         fetch(`${host}/bets/${bet}`)
         .then(checkForErrors)
@@ -46,7 +46,7 @@ export function loaBet(bet) {
 export function fetchSomeData(params) {
     return dispatch => {
         dispatch(startWaiting());
-        fetch(url)
+        fetch(host)
         .then(checkForErrors)
         .then(response => response.json())
         .then(data => {

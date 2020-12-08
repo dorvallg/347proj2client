@@ -4,6 +4,14 @@
   flex-wrap: wrap;
 }
 
+#header {
+  background-color: cornflowerblue;
+  width: 100vw;
+  padding: 10px;
+  text-align: center;
+  margin-top: 0;
+}
+
 .bet {
   margin-top: 10px;
   margin-left: 10px;
@@ -17,18 +25,25 @@
   position: relative;
 }
 
+#bet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.for-against {
+  display: flex;
+  flex-direction: row;
+}
+
+.for-against > input {
+  width: 20px;
+  margin-left: 10px;
+}
+
 .bet > .bet-name {
   font-size: 14pt;
-}
-
-.bet > .for-bet {
-  position: absolute;
-  top: 50px;
-}
-
-.bet > .against-bet {
-  position: absolute;
-  top: 100px;
+  width:200px;
 }
 
 #adder {

@@ -11,7 +11,6 @@ export function BetAdder(props) {
             <input 
             id="name-input" 
             type="text"
-            value={name}
             onChange={e => setName(e.target.value)}
             placeHolder="your bet"
             />
