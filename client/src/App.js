@@ -3,7 +3,7 @@ import './App.css';
 import {Bet} from './bet.js';
 import {useSelector, useDispatch} from 'react-redux';
 import {BetAdder} from './betAdder.js';
-import {stopWaiting, loadBets} from './actions';
+import {stopWaiting, loadBets, loadBet} from './actions';
 
 function App() {
   const isWaiting = useSelector(state => state.isWaiting);
@@ -16,7 +16,7 @@ function App() {
   }
 
   useEffect(() => {
-    dispatch(loadBets("this bet"));
+    dispatch(loadBet("this bet"));
     //setTimeout(() => dispatchEvent(stopWaiting()), 3000);
   }, [dispatch]);
 

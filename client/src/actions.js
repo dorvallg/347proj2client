@@ -21,13 +21,28 @@ export function loadBets(bets){
     };
 }
 
-const url = 'Where-Bets-Are-Located';
-
 function checkForErrors(response){
     if( !response.ok){
         throw Error(`${response.statue}: ${response.statusText}`);
     }
 }
+
+const host = 'https://project2.cjwalton.me/:8443';
+
+export function loaBet(bet) {
+    return dispatch => {
+        fetch(`${host}/bets/${bet}`)
+        .then(checkForErrors)
+        .then(response => response.json())
+        .then(data => {
+            if(data.ok){
+                //data bets
+            }
+        })
+        .catch(e => console.error(e));
+    };
+}
+
 export function fetchSomeData(params) {
     return dispatch => {
         dispatch(startWaiting());
