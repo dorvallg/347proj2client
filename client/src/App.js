@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {Bet} from './bet.js';
+import {Bet} from './Bet.js';
 import {useSelector, useDispatch} from 'react-redux';
-import {BetAdder} from './betAdder.js';
+import {BetAdder} from './BetAdder.js';
 import {stopWaiting, loadBets, loadBet} from './actions';
 
 function App() {
@@ -11,8 +11,11 @@ function App() {
   const dispatch = useDispatch();
   console.log(isWaiting);
 
+  const bet = new Bet();
+
   const addBet = newBet => {
-    setBets(bets => [newBet, ...bets.filter(bet => bet.name !== newBet.name)])
+    dispatch(loadBet(bet));
+    //setBets(bets => [newBet, ...bets.filter(bet => bet.name !== newBet.name)])
   }
 
   useEffect(() => {
