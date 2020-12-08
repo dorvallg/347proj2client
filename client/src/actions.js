@@ -1,3 +1,6 @@
+export const Action = Object.freeze({
+    LoadBets: 'LoadBets',
+});
 
 export function stopWaiting() {
     return {
@@ -12,7 +15,10 @@ export function startWaiting() {
 }
 
 export function loadBets(bets){
-    //Bets created Here
+    return {
+        type: Action.LoadMemories,
+        payload: bets,
+    };
 }
 
 const url = 'Where-Bets-Are-Located';
