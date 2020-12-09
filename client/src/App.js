@@ -8,7 +8,7 @@ import {loadBet} from './actions';
 
 function App() {
   const isWaiting = useSelector(state => state.isWaiting);
-  const [bets, setBets] = useState([]);
+  const [bets] = useState([]);
   const dispatch = useDispatch();
   console.log(isWaiting);
 
