@@ -45,7 +45,7 @@ export function loadBet(bet) {
         .then(response => response.json())
         .then(data => {
             if(data.ok){
-                //data bets
+                dispatch(loadBets(data.bets));
             }
         })
         .catch(e => console.error(e));

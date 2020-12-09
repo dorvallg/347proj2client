@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Bet} from './Bet.js';
 import {useSelector, useDispatch} from 'react-redux';
-import {BetAdder} from './BetAdder.js';
-import {stopWaiting, loadBets, loadBet} from './actions';
+import {BetAdder} from './betAdder.js';
+//import {stopWaiting, loadBets, 
+import {loadBet} from './actions';
 
 function App() {
   const isWaiting = useSelector(state => state.isWaiting);
@@ -11,9 +12,9 @@ function App() {
   const dispatch = useDispatch();
   console.log(isWaiting);
 
-  const addBet = newBet =>{
+  //const addBet = newBet =>{
 
-  }
+  //}
   
 /* Moving this to betAdder.js
   const addBet = newBet => {
