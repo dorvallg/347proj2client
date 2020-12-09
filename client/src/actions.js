@@ -36,11 +36,11 @@ function checkForErrors(response){
     }
 }
 
-const host = 'https://project2-api.cjwalton.me/:8443';
+const host = 'http://project2-api.cjwalton.me/:3443';
 
-export function loadBet(bet) {
+export function loadBet(name, odds) {
     return dispatch => {
-        fetch(`${host}/bets/${bet}`)
+        fetch(`${host}/bets/${name}/${odds}`)
         .then(checkForErrors)
         .then(response => response.json())
         .then(data => {
