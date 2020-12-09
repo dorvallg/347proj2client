@@ -12,7 +12,7 @@ export function reducer(state = initialState, action) {
                 ...state,
                 bets: action.payload,
             }
-        case Action.FinishAddingBets:
+        case Action.FinishAddingBet:
             return {
                 ...state,
                 bets: [action.payload, ...state.bets],
@@ -22,6 +22,7 @@ export function reducer(state = initialState, action) {
                 ...state,
                 isWaiting: false,
             }
+        
         default:
             return state;
     }

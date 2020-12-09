@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {startAddingBet} from './actions';
 
-export function BetAdder(props) {
+//Uses dispatch to add bets now, see startAddingBet() within actions.js for more
+export function BetAdder() {
+    const dispatch = useDispatch();
     const [name, setName] = useState(0);
     //const [will, setWill] = useState(0);
     //const [wont, setWont] = useState(0);
@@ -14,9 +18,9 @@ export function BetAdder(props) {
             onChange={e => setName(e.target.value)}
             placeHolder="your bet"
             />
-
-            <button onClick={() => props.add({name})}>This Will Happen</button>
-            <button onClick={() => props.add({name})}>This Won't Happen</button>
+    
+            <button onClick={() => dispatch(startAddingBet(name))}>This Will Happen</button>
+            <button onClick={() => dispatch(startAddingBet(name))}>This Won't Happen</button>
         </div>
     );
 }

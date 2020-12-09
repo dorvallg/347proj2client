@@ -1,7 +1,15 @@
 export const Action = Object.freeze({
     LoadBets: 'LoadBets',
-    FinishAddingBets: 'FinishAddingBets',
+    FinishAddingBet: 'FinishAddingBet',
 });
+
+//Adds the new bet to the store
+export function finishAddingBet(bet){
+    return {
+        type: Action.FinishAddingBets,
+        payload: bet,
+    };
+}
 
 export function stopWaiting() {
     return {
@@ -17,14 +25,7 @@ export function startWaiting() {
 
 export function loadBets(bets){
     return {
-        type: Action.LoadMemories,
-        payload: bets,
-    };
-}
-
-export function FinishAddingBets(bets){
-    return {
-        type: Action.FinishAddingMemory,
+        type: Action.LoadBets,
         payload: bets,
     };
 }
@@ -35,47 +36,48 @@ function checkForErrors(response){
     }
 }
 
-const host = 'https://project2.cjwalton.me/:8443';
+const host = 'https://project2-api.cjwalton.me/:8443';
 
-export function loadBet(newBet) {
+export function loadBet(bet) {
     return dispatch => {
-        fetch(`${host}/bets/${newBet}`)
+        fetch(`${host}/bets/${bet}`)
         .then(checkForErrors)
         .then(response => response.json())
         .then(data => {
             if(data.ok){
-                dispatch(loadBets(data.bets));
+                //data bets
             }
         })
         .catch(e => console.error(e));
     };
 }
 
-export function addBet(newBet) {
-    const bet = {newBet: ''};
+//calls a similar fetch request to the server to add a bet
+export function startAddingBet( name, odds ){
+    const today = Date.UTC();
+    const expires = today + Date.UTC(0, 1, 0, 0, 0, 0, 0);
+    const bet = {id: 0, odds, name, expires_at: expires, is_expired: 0};
     const options = {
         method: 'POST',
         headers: {
-            'Content-Type': 'applications/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newBet),
+        body: JSON.stringify(bet),
     }
-
     return dispatch => {
-        fetch(`${host}/bets/${newBet}`, options)
+        fetch(`${host}/bets`, options)
         .then(checkForErrors)
         .then(response => response.json())
         .then(data => {
             if(data.ok){
                 bet.id = data.id;
-                dispatch(FinishAddingBets(newBet));
+                dispatch(finishAddingBet(bet));
             }
         })
         .catch(e => console.error(e));
     };
 }
 
-/**
 export function fetchSomeData(params) {
     return dispatch => {
         dispatch(startWaiting());
@@ -93,4 +95,3 @@ export function fetchSomeData(params) {
         .catch(e => console.error(e));
     }
 }
-*/
