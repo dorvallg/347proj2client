@@ -1,8 +1,6 @@
 import React from 'react';
 
 export function Bet(props) {
-    console.log(props);
-
     return (
         <div className="bet" id="bet">
             <span className="bet-name">{props.bet.betName}</span>
@@ -14,6 +12,7 @@ export function Bet(props) {
                 <span className="against-bet">This will not happen:</span>
                 <div className="val">{props.bet.against}</div>
             </div>
+            <div id="expires">expires on: {props.bet.epxires_at}</div>
         </div>
     );
 }

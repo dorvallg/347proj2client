@@ -24,11 +24,7 @@ function App() {
 */
 
   useEffect(() => {//hard coded for testing purposes
-    var bet;
-    for(bet of bets) {
-      dispatch(loadBet(bet.betName));
-    }
-    //dispatch(loadBet("sample"));
+    dispatch(loadBet("sample"));
     //setTimeout(() => dispatchEvent(stopWaiting()), 3000);
   }, [dispatch]);
 
@@ -40,7 +36,6 @@ function App() {
       </div>
       {/*<BetAdder ></BetAdder>*/}
       {isWaiting && <div className="loader" />}
-      {console.log(bets)}
       {bets.map(bet => <Bet key={bet.id} bet={bet}/>)}
     </div>
   );

@@ -46,6 +46,13 @@
   width:200px;
 }
 
+#expires {
+  font-size: .25em;
+  position: absolute;
+  right: 10;
+  bottom: 10;
+}
+
 #adder {
   display: flex;
   flex-direction: column;
