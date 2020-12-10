@@ -10,7 +10,7 @@ function App() {
   const isWaiting = useSelector(state => state.isWaiting);
   const bets = useSelector(state => state.bets);
   const dispatch = useDispatch();
-  console.log(isWaiting);
+  //console.log(isWaiting);
 
   //const addBet = newBet =>{
 

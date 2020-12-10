@@ -34,6 +34,7 @@ function checkForErrors(response){
     if( !response.ok){
         throw Error(`${response.statue}: ${response.statusText}`);
     }
+    return response;
 }
 
 const host = 'https://project2-api.cjwalton.me:8444';
