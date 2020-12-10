@@ -36,7 +36,7 @@ function checkForErrors(response){
     }
 }
 
-const host = 'https://project2-api.cjwalton.me/:3443';
+const host = 'https://project2-api.cjwalton.me:8444';
 
 export function loadBet(name, odds) {
     return dispatch => {
