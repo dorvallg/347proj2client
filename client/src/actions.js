@@ -34,13 +34,14 @@ function checkForErrors(response){
     if( !response.ok){
         throw Error(`${response.statue}: ${response.statusText}`);
     }
+    return response;
 }
 
 const host = 'https://project2-api.cjwalton.me:8444';
 
-export function loadBet(name, odds) {
+export function loadBet(name) {
     return dispatch => {
-        fetch(`${host}/bets/${name}/${odds}`)
+        fetch(`${host}/bets/${name}`)
         .then(checkForErrors)
         .then(response => response.json())
         .then(data => {
@@ -53,10 +54,10 @@ export function loadBet(name, odds) {
 }
 
 //calls a similar fetch request to the server to add a bet
-export function startAddingBet( name, odds ){
+export function startAddingBet( name){
     const today = Date.UTC();
     const expires = today + Date.UTC(0, 1, 0, 0, 0, 0, 0);
-    const bet = {id: 0, odds, name, expires_at: expires, is_expired: 0};
+    const bet = {id: 0, name, expires_at: expires, is_expired: 0};
     const options = {
         method: 'POST',
         headers: {
@@ -78,6 +79,7 @@ export function startAddingBet( name, odds ){
     };
 }
 
+/**
 export function fetchSomeData(params) {
     return dispatch => {
         dispatch(startWaiting());
@@ -95,3 +97,4 @@ export function fetchSomeData(params) {
         .catch(e => console.error(e));
     }
 }
+*/

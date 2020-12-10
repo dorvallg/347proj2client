@@ -10,7 +10,7 @@ function App() {
   const isWaiting = useSelector(state => state.isWaiting);
   const bets = useSelector(state => state.bets);
   const dispatch = useDispatch();
-  console.log(isWaiting);
+  //console.log(isWaiting);
 
   //const addBet = newBet =>{
 
@@ -22,8 +22,13 @@ function App() {
     //setBets(bets => [newBet, ...bets.filter(bet => bet.name !== newBet.name)])
   }
 */
+
   useEffect(() => {//hard coded for testing purposes
-    dispatch(loadBet( "sample", 0));
+    var bet;
+    for(bet of bets) {
+      dispatch(loadBet(bet.betName));
+    }
+    //dispatch(loadBet("sample"));
     //setTimeout(() => dispatchEvent(stopWaiting()), 3000);
   }, [dispatch]);
 
@@ -35,6 +40,7 @@ function App() {
       </div>
       {/*<BetAdder ></BetAdder>*/}
       {isWaiting && <div className="loader" />}
+      {console.log(bets)}
       {bets.map(bet => <Bet key={bet.id} bet={bet}/>)}
     </div>
   );

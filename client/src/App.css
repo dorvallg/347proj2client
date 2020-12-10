@@ -36,7 +36,7 @@
   flex-direction: row;
 }
 
-.for-against > input {
+.val {
   width: 20px;
   margin-left: 10px;
 }
