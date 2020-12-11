@@ -11,10 +11,6 @@ function App() {
   const bets = useSelector(state => state.bets);
   const dispatch = useDispatch();
   //console.log(isWaiting);
-
-  //const addBet = newBet =>{
-
-  //}
   
 /* Moving this to betAdder.js
   const addBet = newBet => {
@@ -34,7 +30,7 @@ function App() {
         <h1>What's To Come?</h1>
         <h2>Enter How You Believe An Event Will Play Out Or Add A New Event</h2>
       </div>
-      {/*<BetAdder ></BetAdder>*/}
+      {<BetAdder ></BetAdder>}
       {isWaiting && <div className="loader" />}
       {bets.map(bet => <Bet key={bet.id} bet={bet}/>)}
     </div>
