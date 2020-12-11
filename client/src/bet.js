@@ -12,7 +12,7 @@ export function Bet(props) {
                 <span className="against-bet">This will not happen:</span>
                 <div className="val">{props.bet.against}</div>
             </div>
-            <div id="expires">expires on: {props.bet.epxires_at}</div>
+            <div id="expires">expires on: {props.bet.expires_at}</div>
         </div>
     );
 }
