@@ -46,11 +46,11 @@
   width:200px;
 }
 
-#expires {
+.bet > #expires {
   font-size: .25em;
   position: absolute;
-  right: 10;
-  bottom: 10;
+  right: 0;
+  bottom: 0;
 }
 
 #adder {
