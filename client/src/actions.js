@@ -46,7 +46,6 @@ export function loadBet(expired) {
         .then(response => response.json())
         .then(data => {
             if(data.ok){
-                dispatch(checkExperation(data.bets));
                 dispatch(loadBets(data.bets));
             }
         })
@@ -54,9 +53,6 @@ export function loadBet(expired) {
     };
 }
 
-export function checkExpiration(bets) {
-    return null;
-}
 //calls a similar fetch request to the server to add a bet
 export function startAddingBet( name, odds, date ){
     const expires = date;

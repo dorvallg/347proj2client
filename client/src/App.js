@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
-import {Bet} from './Bet.js';
+import {Bet} from './bet.js';
 import {useSelector, useDispatch} from 'react-redux';
 import {BetAdder} from './betAdder.js';
 //import {stopWaiting, loadBets, 
