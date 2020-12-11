@@ -54,10 +54,17 @@ export function loadBet(expired) {
 }
 
 //calls a similar fetch request to the server to add a bet
-export function startAddingBet( name){
+export function startAddingBet( name, odds ){
     const today = Date.UTC();
+    let in_favor = 0;
+    let against = 0;
+    if( odds < 0 ){
+        against++;
+    } else {
+        in_favor++;
+    }
     const expires = today + Date.UTC(0, 1, 0, 0, 0, 0, 0);
-    const bet = {id: 0, name, expires_at: expires, is_expired: 0};
+    const bet = {id: 0, betName: name, in_favor: in_favor, against: against, expires_at: expires, is_expired: 0};
     const options = {
         method: 'POST',
         headers: {

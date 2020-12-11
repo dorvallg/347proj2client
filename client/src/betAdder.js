@@ -19,8 +19,8 @@ export function BetAdder() {
             //placeHolder="your bet"
             />
     
-            <button onClick={() => dispatch(startAddingBet(name))}>This Will Happen</button>
-            <button onClick={() => dispatch(startAddingBet(name))}>This Won't Happen</button>
+            <button onClick={() => dispatch(startAddingBet(name, 1))}>This Will Happen</button>
+            <button onClick={() => dispatch(startAddingBet(name, -1))}>This Won't Happen</button>
 
             <label id="date">Enter expiration date of bet in xx-xx-xxxx format</label>
             <input 
