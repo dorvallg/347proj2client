@@ -39,9 +39,9 @@ function checkForErrors(response){
 
 const host = 'https://project2-api.cjwalton.me:8444';
 
-export function loadBet(name) {
+export function loadBet(expired) {
     return dispatch => {
-        fetch(`${host}/bets/${name}`)
+        fetch(`${host}/bets/${expired}`)
         .then(checkForErrors)
         .then(response => response.json())
         .then(data => {
