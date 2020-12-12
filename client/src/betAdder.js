@@ -7,7 +7,6 @@ export function BetAdder() {
     const dispatch = useDispatch();
     const [name, setName] = useState(0);
     const [date, setDate] = useState(0);
-    //const [wont, setWont] = useState(0);
 
     return (
         <div id="adder" className="bet">
@@ -16,7 +15,6 @@ export function BetAdder() {
             id="name-input" 
             type="text"
             onChange={e => setName(e.target.value)}
-            //placeHolder="your bet"
             />
     
             <button onClick={() => dispatch(startAddingBet(name, 1, date))}>This Will Happen</button>
@@ -28,7 +26,6 @@ export function BetAdder() {
             type="text"
             required
             onChange={e => setDate(e.target.value)}
-            //placeHolder="xx-xx-xxxx"
             />
         </div>
     );

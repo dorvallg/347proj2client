@@ -3,7 +3,7 @@ import './App.css';
 import {Bet} from './bet.js';
 import {useSelector, useDispatch} from 'react-redux';
 import {BetAdder} from './betAdder.js';
-//import {stopWaiting, loadBets, 
+//import {stopWaiting, 
 import {loadBet} from './actions';
 
 function App() {
@@ -11,13 +11,6 @@ function App() {
   const bets = useSelector(state => state.bets);
   const dispatch = useDispatch();
   //console.log(isWaiting);
-  
-/* Moving this to betAdder.js
-  const addBet = newBet => {
-    dispatch(loadBets(bet));
-    //setBets(bets => [newBet, ...bets.filter(bet => bet.name !== newBet.name)])
-  }
-*/
 
   useEffect(() => {//hard coded for testing purposes
     dispatch(loadBet(0));

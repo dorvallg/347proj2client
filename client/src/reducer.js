@@ -17,6 +17,22 @@ export function reducer(state = initialState, action) {
                 ...state,
                 bets: [action.payload, ...state.bets],
             }
+        case Action.StartPacthingBet:
+            return {
+                ...state,
+                bets: [action.payload, ...state.bets],
+            }
+        case Action.FinishSavingBet:
+            return {
+                ...state,
+                bets: state.bets.map(bet => {
+                    if( bet.id === action.payload.id ){
+                        return action.payload;
+                    } else {
+                        return bet;
+                    }
+                }),
+            }
         case 'StopWaiting':
             return{
                 ...state,

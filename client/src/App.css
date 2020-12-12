@@ -31,9 +31,14 @@
   justify-content: space-evenly;
 }
 
+.for-bet, .against-bet {
+  font-size: .95em;
+}
+
 .for-against {
   display: flex;
   flex-direction: row;
+  
 }
 
 .val {
@@ -44,6 +49,11 @@
 .bet > .bet-name {
   font-size: 14pt;
   width:200px;
+}
+
+.for_against > .plus {
+  width: 2px;
+  height: 2px;
 }
 
 .bet > #expires {
