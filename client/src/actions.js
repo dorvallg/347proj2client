@@ -131,7 +131,6 @@ export function startAddingBet( name, odds, date ){
 }
 
 export function startPatchingBet(bet){
-    console.log(bet);
     const options = {
         method: 'PATCH',
         headers: {

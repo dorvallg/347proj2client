@@ -1,13 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch} from 'react-redux';
 import { startPatchingBet } from './actions';
 
 export function Bet(props) {
     const bet = props.bet;
     const dispatch = useDispatch();
-    
-    const favor = useState(bet.in_favor);
-    const against = useState(bet.against);
 
     const updateAgainst = () => {
         bet.against = bet.against + 1;
