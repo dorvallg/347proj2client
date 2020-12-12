@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {//hard coded for testing purposes
     dispatch(loadBet(0));
-    //setTimeout(() => dispatchEvent(stopWaiting()), 3000);
   }, [dispatch]);
 
   return (

@@ -50,7 +50,6 @@ const host = 'https://project2-api.cjwalton.me:8444';
 
 export function loadBet(expired) {
     return dispatch => {
-        dispatch(startWaiting());
         fetch(`${host}/bets/${expired}`)
         .then(checkForErrors)
         .then(response => response.json())
@@ -74,7 +73,6 @@ export function loadBet(expired) {
                 }
                 dispatch(loadBets(bets));
             }
-            dispatch(stopWaiting());
         })
         .catch(e => console.error(e));
     };
@@ -117,6 +115,7 @@ export function startAddingBet( name, odds, date ){
         body: JSON.stringify(bet),
     }
     return dispatch => {
+        dispatch(startWaiting());
         fetch(`${host}/bets`, options)
         .then(checkForErrors)
         .then(response => response.json())
@@ -125,6 +124,7 @@ export function startAddingBet( name, odds, date ){
                 bet.id = data.id;
                 dispatch(finishAddingBet(bet));
             }
+            dispatch(stopWaiting());
         })
         .catch(e => console.error(e));
     };
@@ -151,23 +151,3 @@ export function startPatchingBet(bet){
         .catch(e => console.error(e));
     }
 }
-
-/**
-export function fetchSomeData(params) {
-    return dispatch => {
-        dispatch(startWaiting());
-        fetch(host)
-        .then(checkForErrors)
-        .then(response => response.json())
-        .then(data => {
-            if( data.ok){
-                // create bets
-                dispatch(loadBets(data.bets));
-            }
-            //After bets are created stop waiting
-            dispatch(stopWaiting());
-        })
-        .catch(e => console.error(e));
-    }
-}
-*/
