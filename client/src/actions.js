@@ -59,8 +59,17 @@ export function loadBet(expired) {
                 const bets = (data.bets).filter(bet => bet.is_expired !== 1);
                 const bad_bet = (data.bets).filter(bet => bet.is_expired === 1);
                 var bet;
+                
                 for(bet of bad_bet) {
-                    dispatch(startPatchingBet(bet));
+                    dispatch(startPatchingBet({
+                        id: bet.id,
+                        betName: bet.betName,
+                        in_favor: 0,
+                        against: 0,
+                        expires_at: "expired",
+                        is_expired: 1,
+                    }));
+                    
                 }
                 dispatch(loadBets(bets));
             }
@@ -69,7 +78,7 @@ export function loadBet(expired) {
     };
 }
 
-function check_expired(bets, dispatch) {
+function check_expired(bets) {
     const date = new Date();
 
     var bet;
@@ -83,7 +92,6 @@ function check_expired(bets, dispatch) {
         const bet_date = new Date(bet_year, bet_month, bet_day);
         if(bet_date < date) {
             bet.is_expired = 1;
-            
         }
     }
 }
@@ -130,10 +138,11 @@ export function startPatchingBet(bet){
     }
 
     return dispatch => {
+        console.log(options.body);
         fetch(`${host}/bets/${bet.id}`, options)
         .then(checkForErrors)
-        .then(response => response.json)
-        .then(data => {
+        .then(response => response.json())
+        .then(data => { 
             if(data.ok) {
                 dispatch(finishSavingBet(bet));
             }
