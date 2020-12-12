@@ -10,7 +10,7 @@ export function Bet(props) {
     const against = useState(bet.against);
 
     const updateAgainst = () => {
-        bet.agaisnt = bet.against + 1;
+        bet.against = bet.against + 1;
         dispatch(startPatchingBet({
             id: bet.id,
             betName: bet.betName,
