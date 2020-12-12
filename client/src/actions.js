@@ -64,9 +64,9 @@ export function loadBet(expired) {
                     dispatch(startPatchingBet({
                         id: bet.id,
                         betName: bet.betName,
-                        in_favor: 0,
-                        against: 0,
-                        expires_at: "expired",
+                        in_favor: bet.in_favor,
+                        against: bet.against,
+                        expires_at: bet.expires_at,
                         is_expired: 1,
                     }));
                     
@@ -129,16 +129,16 @@ export function startAddingBet( name, odds, date ){
 }
 
 export function startPatchingBet(bet){
+    console.log(bet);
     const options = {
         method: 'PATCH',
-        header: {
+        headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(bet),
     }
-
+    
     return dispatch => {
-        console.log(options.body);
         fetch(`${host}/bets/${bet.id}`, options)
         .then(checkForErrors)
         .then(response => response.json())

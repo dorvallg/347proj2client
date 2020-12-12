@@ -10,7 +10,7 @@ export function Bet(props) {
     const against = useState(bet.against);
 
     const updateAgainst = () => {
-        /*
+        
         dispatch(startPatchingBet({
             id: bet.id,
             betName: bet.betName,
@@ -19,11 +19,11 @@ export function Bet(props) {
             expires_at: bet.expires_at,
             is_expired: 0,
         }));
-        */
+        
     }
 
     const updateFavor = () => {
-        /*
+        
         dispatch(startPatchingBet({
             id: bet.id,
             betName: bet.betName,
@@ -32,7 +32,7 @@ export function Bet(props) {
             expires_at: bet.expires_at,
             is_expired: 0,
         }));
-        */
+        
     }
     
     return (
