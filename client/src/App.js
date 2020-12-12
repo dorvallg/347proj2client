@@ -23,8 +23,8 @@ function App() {
         <h1>What's To Come?</h1>
         <h2>Enter How You Believe An Event Will Play Out Or Add A New Event</h2>
       </div>
-      <div style={{visibility: isWaiting ? "visible" : "hidden"}} className="loader"></div>
-      {<BetAdder style={{visibility: isWaiting ? "hidden" : "visible"}}></BetAdder>}
+      <div style={{display: isWaiting ? "visible" : "none"}} className="loader"></div>
+      {<BetAdder style={{visibility: isWaiting ? "none" : "visible"}}></BetAdder>}
       {isWaiting && <div className="loader" />}
       {bets.map(bet => <Bet key={bet.id} bet={bet}/>)}
     </div>
