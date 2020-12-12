@@ -50,6 +50,7 @@ const host = 'https://project2-api.cjwalton.me:8444';
 
 export function loadBet(expired) {
     return dispatch => {
+        dispatch(startWaiting());
         fetch(`${host}/bets/${expired}`)
         .then(checkForErrors)
         .then(response => response.json())
@@ -73,6 +74,7 @@ export function loadBet(expired) {
                 }
                 dispatch(loadBets(bets));
             }
+            dispatch(stopWaiting());
         })
         .catch(e => console.error(e));
     };
@@ -115,7 +117,6 @@ export function startAddingBet( name, odds, date ){
         body: JSON.stringify(bet),
     }
     return dispatch => {
-        dispatch(startWaiting());
         fetch(`${host}/bets`, options)
         .then(checkForErrors)
         .then(response => response.json())
@@ -124,7 +125,6 @@ export function startAddingBet( name, odds, date ){
                 bet.id = data.id;
                 dispatch(finishAddingBet(bet));
             }
-            dispatch(stopWaiting());
         })
         .catch(e => console.error(e));
     };
