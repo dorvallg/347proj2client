@@ -10,12 +10,12 @@ export function Bet(props) {
     const against = useState(bet.against);
 
     const updateAgainst = () => {
-        
+        bet.agaisnt = bet.against + 1;
         dispatch(startPatchingBet({
             id: bet.id,
             betName: bet.betName,
             in_favor: bet.in_favor,
-            against: bet.against + 1,
+            against: bet.against,
             expires_at: bet.expires_at,
             is_expired: 0,
         }));
@@ -23,11 +23,11 @@ export function Bet(props) {
     }
 
     const updateFavor = () => {
-        
+        bet.in_favor = bet.in_favor + 1;
         dispatch(startPatchingBet({
             id: bet.id,
             betName: bet.betName,
-            in_favor: bet.in_favor + 1,
+            in_favor: bet.in_favor,
             against: bet.against,
             expires_at: bet.expires_at,
             is_expired: 0,
@@ -41,12 +41,12 @@ export function Bet(props) {
             <div className="for-against">
                 <span className="for-bet">This will happen:</span>
                 <div className="val">{bet.in_favor}</div>
-                <button className="plus" onClick={updateFavor()}>+</button>
+                <button className="plus" onClick={() => updateFavor()}>+</button>
             </div>
             <div className="for-against">
                 <span className="against-bet">This will not happen:</span>
                 <div className="val">{bet.against}</div>
-                <button className="plus" onClick={updateAgainst()}>+</button>
+                <button className="plus" onClick={() => updateAgainst()}>+</button>
             </div>
             <div id="expires">expires on: {bet.expires_at}</div>
         </div>
