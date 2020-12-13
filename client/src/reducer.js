@@ -17,11 +17,6 @@ export function reducer(state = initialState, action) {
                 ...state,
                 bets: [action.payload, ...state.bets],
             }
-        case Action.StartPacthingBet:
-            return {
-                ...state,
-                bets: [action.payload, ...state.bets],
-            }
         case Action.FinishSavingBet:
             return {
                 ...state,

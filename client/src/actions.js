@@ -15,7 +15,7 @@ export function finishSavingBet(bet){
 //Adds the new bet to the store
 export function finishAddingBet(bet){
     return {
-        type: Action.FinishAddingBets,
+        type: Action.FinishAddingBet,
         payload: bet,
     };
 }
@@ -111,7 +111,7 @@ export function startAddingBet( name, odds, date ){
     } else {
         in_favor++;
     }
-    const bet = {id: 0, betName: name, in_favor: in_favor, against: against, expires_at: expires, is_expired: 0};
+    let bet = {id: 0, betName: name, in_favor: in_favor, against: against, expires_at: expires, is_expired: 0};
     const options = {
         method: 'POST',
         headers: {
@@ -127,7 +127,7 @@ export function startAddingBet( name, odds, date ){
             if(data.ok){
                 bet.id = data.id;
                 dispatch(finishAddingBet(bet));
-            }
+        }
         })
         .catch(e => console.error(e));
     };
