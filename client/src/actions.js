@@ -4,7 +4,7 @@ export const Action = Object.freeze({
     FinishSavingBet: 'FinishSavingBet',
 });
 
-//Adds the new bet to the store
+//Adds the modified bet to the store
 export function finishSavingBet(bet){
     return {
         type: Action.FinishSavingBet,
@@ -48,6 +48,7 @@ function checkForErrors(response){
 
 const host = 'https://project2-api.cjwalton.me:8444';
 
+//load bets on page laod 
 export function loadBet(expired) {
     return dispatch => {
         dispatch(startWaiting());
@@ -74,12 +75,14 @@ export function loadBet(expired) {
                 }
                 dispatch(loadBets(bets));
             }
+
             dispatch(stopWaiting());
         })
         .catch(e => console.error(e));
     };
 }
 
+// check if the bets have expired 
 function check_expired(bets) {
     const date = new Date();
 
@@ -130,6 +133,7 @@ export function startAddingBet( name, odds, date ){
     };
 }
 
+//patch bets that have been expired, bets whos odds have changed 
 export function startPatchingBet(bet){
     const options = {
         method: 'PATCH',

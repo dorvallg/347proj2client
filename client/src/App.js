@@ -10,9 +10,9 @@ function App() {
   const isWaiting = useSelector(state => state.isWaiting);
   const bets = useSelector(state => state.bets);
   const dispatch = useDispatch();
-  console.log(isWaiting);
 
-  useEffect(() => {//hard coded for testing purposes
+  useEffect(() => {
+    //fetch bets
     dispatch(loadBet(0));
   }, [dispatch]);
 
@@ -24,7 +24,6 @@ function App() {
       </div>
       <div style={{display: isWaiting ? "visible" : "none"}} className="loader"></div>
       {<BetAdder style={{visibility: isWaiting ? "none" : "visible"}}></BetAdder>}
-      {isWaiting && <div className="loader" />}
       {bets.map(bet => <Bet key={bet.id} bet={bet}/>)}
     </div>
   );

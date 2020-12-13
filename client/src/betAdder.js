@@ -9,6 +9,7 @@ export function BetAdder() {
     const [date, setDate] = useState(0);
 
     return (
+        //input field for bet name
         <div id="adder" className="bet">
             <label>Add new event:</label>
             <input 
@@ -20,6 +21,7 @@ export function BetAdder() {
             <button onClick={() => dispatch(startAddingBet(name, 1, date))}>This Will Happen</button>
             <button onClick={() => dispatch(startAddingBet(name, -1, date))}>This Won't Happen</button>
 
+            {/*Input field for expiration date*/}
             <label id="date">Enter expiration date of bet in xx-xx-xxxx format</label>
             <input 
             id="date-input" 
